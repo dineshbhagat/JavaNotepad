@@ -1,0 +1,3 @@
+module moduleDemoClient {
+    requires moduleDemo;
+}
