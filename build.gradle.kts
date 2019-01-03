@@ -74,6 +74,8 @@ dependencies {
 
     // byte code manipulation
     implementation("org.javassist:javassist:3.24.0-GA")
+    
+    // ref: https://docs.gradle.org/current/userguide/java_testing.html#compiling_and_executing_junit_jupiter_tests
     // Use JUnit test framework
     // JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
     // JUnit 5 is the latest version of the well-known JUnit test framework. Unlike its predecessor, JUnit 5 is modularized and composed of several modules:
