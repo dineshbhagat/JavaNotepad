@@ -12,7 +12,7 @@ plugins {
     idea
     jdepend
     `project-report`
-    pmd
+ //   pmd
     // Apply the application plugin to add support for building an application
     application
 }
@@ -35,8 +35,8 @@ dependencies {
     implementation("org.apache.httpcomponents:httpclient:4.5.6")
 
 
-
-    implementation("org.projectlombok:lombok:1.18.4")
+    compileOnly("org.projectlombok:lombok:1.18.4")
+    annotationProcessor("org.projectlombok:lombok:1.18.4")
 
     // async library
     implementation("io.reactivex.rxjava2:rxjava:2.2.0")
@@ -53,21 +53,33 @@ dependencies {
     implementation("com.google.guava:guava:27.0.1-jre")
     implementation("org.apache.commons:commons-lang3:3.8.1")
 
+    // time lib
+    implementation("joda-time:joda-time:2.10.1")
 
+    
     // logging
     implementation("org.slf4j:slf4j-api:1.7.25")
-
+    implementation("org.slf4j:slf4j-jdk14:1.7.25")
 
     //Base 64 lib
     implementation("commons-codec:commons-codec:1.11")
 
+
+    // hystrix
+    implementation("com.netflix.hystrix:hystrix-core:1.5.18")
+    implementation("com.netflix.hystrix:hystrix-javanica:1.5.18")
+    implementation("com.netflix.hystrix:hystrix-examples:1.5.18")
+
+
+
     // byte code manipulation
-//    implementation("org.javassist:javassist:jar:3.24.0-GA")
+    implementation("org.javassist:javassist:3.24.0-GA")
     // Use JUnit test framework
-    testImplementation("junit:junit:4.12")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.3.2")
+    testCompile("junit:junit:4.12")
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.3.2")
+    testCompile("org.junit.jupiter:junit-jupiter-engine:5.3.2")
 }
+
 
 application {
     // Define the main class for the application
