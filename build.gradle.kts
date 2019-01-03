@@ -75,9 +75,19 @@ dependencies {
     // byte code manipulation
     implementation("org.javassist:javassist:3.24.0-GA")
     // Use JUnit test framework
+    // JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
+    // JUnit 5 is the latest version of the well-known JUnit test framework. Unlike its predecessor, JUnit 5 is modularized and composed of several modules:
+    // The JUnit Platform serves as a foundation for launching testing frameworks on the JVM.
+    // JUnit Jupiter is the combination of the new programming model and extension model
+    // for writing tests and extensions in JUnit 5. JUnit Vintage provides a TestEngine for
+    // running JUnit 3 and JUnit 4 based tests on the platform.
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.2")
+
+    // If you want to run JUnit 3/4 tests on JUnit Platform,
+    // or even mix them with Jupiter tests, you should add extra JUnit Vintage Engine dependencies
     testCompile("junit:junit:4.12")
-    testCompile("org.junit.jupiter:junit-jupiter-api:5.3.2")
-    testCompile("org.junit.jupiter:junit-jupiter-engine:5.3.2")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.3.2")
 }
 
 
