@@ -53,6 +53,11 @@ dependencies {
     implementation("com.google.guava:guava:27.0.1-jre")
     implementation("org.apache.commons:commons-lang3:3.8.1")
 
+    
+    //validators
+    implementation("commons-validator:commons-validator:1.6")
+    
+    
     // time lib
     implementation("joda-time:joda-time:2.10.1")
 
