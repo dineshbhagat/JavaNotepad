@@ -76,7 +76,17 @@ dependencies {
     implementation("com.netflix.hystrix:hystrix-javanica:1.5.18")
     implementation("com.netflix.hystrix:hystrix-examples:1.5.18")
 
-
+    // Benchmarking dependencies JMH
+    // The jmh is a Java harness for building, running, and analysing nano/micro/macro benchmarks
+    // written in Java and other languages targeting the JVM
+    implementation("org.openjdk.jmh:jmh-parent:1.21")
+    implementation("org.openjdk.jmh:jmh-generator-annprocess:1.21")
+    implementation("org.openjdk.jmh:jmh-generator-bytecode:1.21")
+    implementation("org.openjdk.jmh:jmh-generator-reflection:1.21")
+    implementation("org.openjdk.jmh:jmh-generator-asm:1.21")
+    implementation("org.openjdk.jmh:jmh-core-benchmarks:1.21")
+    implementation("org.openjdk.jmh:jmh-samples:1.21")
+    implementation("org.openjdk.jmh:jmh-core:1.21")
 
     // byte code manipulation
     implementation("org.javassist:javassist:3.24.0-GA")
