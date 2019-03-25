@@ -47,6 +47,8 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-annotations:2.9.8")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.9.8")
 
+    implementation("com.jayway.jsonpath:json-path:2.4.0")
+    
 
     // commons collections
     implementation("org.apache.commons:commons-collections4:4.3")
