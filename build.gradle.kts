@@ -49,9 +49,9 @@ dependencies {
 
 
     // commons collections
-    implementation("org.apache.commons:commons-collections4:4.2")
+    implementation("org.apache.commons:commons-collections4:4.3")
     implementation("org.apache.commons:commons-text:1.6")
-    implementation("com.google.guava:guava:27.0.1-jre")
+    implementation("com.google.guava:guava:27.1-jre")
     implementation("org.apache.commons:commons-lang3:3.8.1")
 
     
