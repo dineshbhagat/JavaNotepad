@@ -9,13 +9,21 @@ import com.google.common.collect.Lists;
 
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 public class App {
 
 
+    private static Logger logger = LoggerFactory.getLogger(App.class);
+    
     public static void main(String[] args) throws Exception {
-
+        
+        // You can dynamically change info/debug levels,
+        logger.debug("This is debug message");
+        logger.info("This is info message");
+        
         long start1 = System.nanoTime();
         CacheBuilder<Object, Object> cacheBuilder = CacheBuilder.newBuilder();
 
