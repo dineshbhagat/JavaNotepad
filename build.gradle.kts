@@ -35,8 +35,8 @@ dependencies {
     implementation("org.apache.httpcomponents:httpclient:4.5.6")
 
 
-    compileOnly("org.projectlombok:lombok:1.18.4")
-    annotationProcessor("org.projectlombok:lombok:1.18.4")
+    compileOnly("org.projectlombok:lombok:1.18.10")
+    annotationProcessor("org.projectlombok:lombok:1.18.10")
 
     // async library
     implementation("io.reactivex.rxjava2:rxjava:2.2.0")
@@ -46,6 +46,7 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-core:2.9.8")
     implementation("com.fasterxml.jackson.core:jackson-annotations:2.9.8")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.9.8")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8")
 
     implementation("com.jayway.jsonpath:json-path:2.4.0")
     
@@ -66,8 +67,9 @@ dependencies {
 
     
     // logging
-    implementation("org.slf4j:slf4j-api:1.7.25")
-    implementation("org.slf4j:slf4j-jdk14:1.7.25")
+    implementation("org.apache.logging.log4j:log4j-core:2.12.1")
+    implementation("org.apache.logging.log4j:log4j-api:2.12.1")
+    implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.12.1")
 
     //Base 64 lib
     implementation("commons-codec:commons-codec:1.11")
