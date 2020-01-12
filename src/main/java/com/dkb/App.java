@@ -15,7 +15,22 @@ import org.slf4j.MDC;
 
 public class App {
 
-
+    static {
+        Runtime.getRuntime()
+                .addShutdownHook(new Thread(() -> {
+                    Stopwatch stopwatch = Stopwatch.createStarted();
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } finally {
+                        log.info("interrupted");
+                    }
+                    log.info("Total : " + stopwatch.elapsed(TimeUnit.MILLISECONDS));
+                    log.info("Shutdown hook initiated.");
+                }));
+    }
+    
     private static Logger logger = LoggerFactory.getLogger(App.class);
     
     public static void main(String[] args) throws Exception {
