@@ -20,8 +20,9 @@ plugins {
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
-//    maven(url = "http://jcenter.bintray.com/")
-//    maven(url = "http://central.maven.org/maven2/")
+	mavenLocal()
+    maven(url = "http://jcenter.bintray.com/")
+    maven(url = "http://central.maven.org/maven2/")
     mavenCentral()
     jcenter()
 }
@@ -29,7 +30,13 @@ repositories {
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
 
+    //hz deps
+    implementation("com.hazelcast:hazelcast:3.12.2")
+    implementation("com.hazelcast:hazelcast-client:3.12.2")
 
+
+	implementation("org.jetbrains.kotlin:kotlin-scripting-jvm:1.3.61")
+	
     // remote connections
 // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
     implementation("org.apache.httpcomponents:httpclient:4.5.6")
@@ -41,22 +48,35 @@ dependencies {
     // async library
     implementation("io.reactivex.rxjava2:rxjava:2.2.0")
 
+    // QR code scanner
+    implementation("com.google.zxing:core:3.3.0")
+    implementation("com.google.zxing:javase:3.3.0")
+
 
     //json processing
     implementation("com.fasterxml.jackson.core:jackson-core:2.9.8")
     implementation("com.fasterxml.jackson.core:jackson-annotations:2.9.8")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.9.8")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8")
-
-    implementation("com.jayway.jsonpath:json-path:2.4.0")
     
+    implementation("com.jayway.jsonpath:json-path:2.4.0")
+
+    // https://mvnrepository.com/artifact/joda-time/joda-time
+    implementation("joda-time:joda-time:2.10.3")
+
+
+    implementation("com.google.flatbuffers:flatbuffers-java:1.11.1")
+    implementation("com.google.code.gson:gson:2.8.5")
 
     // commons collections
     implementation("org.apache.commons:commons-collections4:4.3")
     implementation("org.apache.commons:commons-text:1.6")
     implementation("com.google.guava:guava:27.1-jre")
+    implementation("com.google.guava:guava:27.1-android")
     implementation("org.apache.commons:commons-lang3:3.8.1")
-
+    implementation("org.apache.commons:commons-compress:1.18")
+    implementation("org.tukaani:xz:1.8")
+    implementation("commons-io:commons-io:2.6")
     
     //validators
     implementation("commons-validator:commons-validator:1.6")
@@ -67,6 +87,8 @@ dependencies {
 
     
     // logging
+//    implementation("org.slf4j:slf4j-api:1.7.25")
+//    implementation("org.slf4j:slf4j-jdk14:1.7.25")
     implementation("org.apache.logging.log4j:log4j-core:2.12.1")
     implementation("org.apache.logging.log4j:log4j-api:2.12.1")
     implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.12.1")
@@ -94,7 +116,12 @@ dependencies {
 
     // byte code manipulation
     implementation("org.javassist:javassist:3.24.0-GA")
-    
+
+
+
+    //apache camel
+    implementation("org.apache.camel:camel-core:3.0.0-M2")
+    testImplementation("org.apache.camel:camel-test:3.0.0-M2")
     // ref: https://docs.gradle.org/current/userguide/java_testing.html#compiling_and_executing_junit_jupiter_tests
     // Use JUnit test framework
     // JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
@@ -108,8 +135,8 @@ dependencies {
 
     // If you want to run JUnit 3/4 tests on JUnit Platform,
     // or even mix them with Jupiter tests, you should add extra JUnit Vintage Engine dependencies
-    testCompile("junit:junit:4.12")
-    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.3.2")
+//    testCompile("junit:junit:4.12")
+//    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.3.2")
 }
 
 
