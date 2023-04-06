@@ -5,6 +5,8 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * user guide available at https://docs.gradle.org/5.0/userguide/tutorial_java_projects.html
  */
+val jackson by extra("2.14.2")
+val hazelcast by extra("4.2.4")
 
 plugins {
     // Apply the java plugin to add support for Java
@@ -20,11 +22,19 @@ plugins {
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
-	mavenLocal()
-    maven(url = "http://jcenter.bintray.com/")
+    mavenLocal()
+    google()
     maven(url = "http://central.maven.org/maven2/")
     mavenCentral()
-    jcenter()
+    maven(url = "https://mvnrepository.com/artifact")
+    maven(url = "https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-scripting-jvm")
+    maven {
+        setUrl("https://repository.hazelcast.com/release")
+        metadataSources {
+            mavenPom()
+            artifact()
+        }
+    }
 }
 
 dependencies {
@@ -34,8 +44,7 @@ dependencies {
     implementation("com.hazelcast:hazelcast:3.12.2")
     implementation("com.hazelcast:hazelcast-client:3.12.2")
 
-
-	implementation("org.jetbrains.kotlin:kotlin-scripting-jvm:1.3.61")
+    implementation("org.jetbrains.kotlin:kotlin-scripting-jvm:1.3.61")
 	
     // remote connections
 // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
@@ -54,10 +63,11 @@ dependencies {
 
 
     //json processing
-    implementation("com.fasterxml.jackson.core:jackson-core:2.9.8")
-    implementation("com.fasterxml.jackson.core:jackson-annotations:2.9.8")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.9.8")
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8")
+    implementation("com.fasterxml.jackson.core:jackson-core:${jackson}")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:${jackson}")
+    implementation("com.fasterxml.jackson.core:jackson-databind:${jackson}")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:${jackson}")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jackson}")
     
     implementation("com.jayway.jsonpath:json-path:2.4.0")
 
@@ -71,15 +81,14 @@ dependencies {
     // commons collections
     implementation("org.apache.commons:commons-collections4:4.3")
     implementation("org.apache.commons:commons-text:1.6")
-    implementation("com.google.guava:guava:27.1-jre")
-    implementation("com.google.guava:guava:27.1-android")
+    implementation("com.google.guava:guava:31.1-jre")
     implementation("org.apache.commons:commons-lang3:3.8.1")
     implementation("org.apache.commons:commons-compress:1.18")
     implementation("org.tukaani:xz:1.8")
     implementation("commons-io:commons-io:2.6")
     
     //validators
-    implementation("commons-validator:commons-validator:1.6")
+    implementation("commons-validator:commons-validator:1.7")
     
     
     // time lib
@@ -130,8 +139,8 @@ dependencies {
     // JUnit Jupiter is the combination of the new programming model and extension model
     // for writing tests and extensions in JUnit 5. JUnit Vintage provides a TestEngine for
     // running JUnit 3 and JUnit 4 based tests on the platform.
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.2")
 
     // If you want to run JUnit 3/4 tests on JUnit Platform,
     // or even mix them with Jupiter tests, you should add extra JUnit Vintage Engine dependencies
@@ -143,4 +152,11 @@ dependencies {
 application {
     // Define the main class for the application
     mainClassName = "com.dkb.App"
+}
+
+idea {
+    module {
+        isDownloadJavadoc = true
+        isDownloadSources = true
+    }
 }
